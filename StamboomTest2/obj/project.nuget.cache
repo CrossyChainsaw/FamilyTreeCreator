@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "OoaIkUkmZGIYri9eN6oLLMvegEh+zy4urlHK7Xr0gumsjptglPjLqvNorK9zTIYVHeWAwL9rNfC/ALjn0Zihxg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\kaan-\\source\\repos\\StamboomTest2\\StamboomTest2\\StamboomTest2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kaan-\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
