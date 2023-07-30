@@ -31,6 +31,7 @@ namespace StamboomTest2.Forms
             foreach (Person p in personList)
             {
                 CB_Edit.Items.Add(p);
+                CB_ExSpouse.Items.Add(p);
                 CB_Spouse.Items.Add(p);
                 CB_Father.Items.Add(p);
                 CB_Mother.Items.Add(p);
@@ -47,6 +48,7 @@ namespace StamboomTest2.Forms
             CB_Gender.Text = p.Gender;
             TB_YearOfBirth.Text = p.BirthYear;
             TB_DeathYear.Text = p.DeathYear;
+            CB_ExSpouse.Text = p.GetExSpouse();
             CB_Spouse.Text = p.GetSpouse();
             CB_Father.Text = p.GetFather();
             CB_Mother.Text = p.GetMother();
@@ -80,6 +82,21 @@ namespace StamboomTest2.Forms
             else
             {
                 gender = CB_Gender.SelectedItem.ToString();
+            }
+            // Ex-Spouse
+            string ExSpouseID;
+            if (CB_ExSpouse.Text == "?")
+            {
+                ExSpouseID = "?";
+            }
+            else if (CB_ExSpouse.SelectedItem != null)
+            {
+                Person ExSpouse = (Person)CB_ExSpouse.SelectedItem;
+                ExSpouseID = ExSpouse.ID;
+            }
+            else
+            {
+                ExSpouseID = null;
             }
             // Spouse
             string spouseID;
@@ -120,6 +137,7 @@ namespace StamboomTest2.Forms
             currentPerson.Gender = gender;
             currentPerson.BirthYear = TB_YearOfBirth.Text;
             currentPerson.DeathYear = TB_DeathYear.Text;
+            currentPerson.ExSpouseID = ExSpouseID;
             currentPerson.SpouseID = spouseID;
             currentPerson.FatherID = fatherID;
             currentPerson.MotherID = motherID;

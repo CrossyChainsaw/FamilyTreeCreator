@@ -40,6 +40,21 @@ namespace StamboomTest2
             {
                 gender = CB_Gender.SelectedItem.ToString();
             }
+            // Ex-Spouse
+            string ExSpouseID;
+            if (CB_ExSpouse.Text == "?")
+            {
+                ExSpouseID = "?";
+            }
+            else if (CB_ExSpouse.SelectedItem != null)
+            {
+                Person ExSpouse = (Person)CB_ExSpouse.SelectedItem;
+                ExSpouseID = ExSpouse.ID;
+            }
+            else
+            {
+                ExSpouseID = null;
+            }
             // Spouse
             string spouseID;
             if (CB_Spouse.SelectedItem != null)
@@ -73,9 +88,10 @@ namespace StamboomTest2
             {
                 motherID = null;
             }
-            Person p = new Person(nextFreeID.ToString(), firstName, lastName, gender, TB_YearOfBirth.Text, TB_DeathYear.Text, spouseID, fatherID, motherID);
+            Person p = new Person(nextFreeID.ToString(), firstName, lastName, gender, TB_YearOfBirth.Text, TB_DeathYear.Text, ExSpouseID, spouseID, fatherID, motherID);
             Person.CreatePerson(p);
             MessageBox.Show("Created: " + p.ToString());
+            InitializeComponent();
         }
         private void FRM_Create_Load(object sender, EventArgs e)
         {
@@ -101,6 +117,11 @@ namespace StamboomTest2
                 CB_Father.Items.Add(person);
                 CB_Mother.Items.Add(person); // also loads in males !!!
             }
+        }
+
+        private void BTN_SWithCedilla_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -47,6 +47,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.BTN_Edit = new System.Windows.Forms.Button();
             this.TB_FirstName = new System.Windows.Forms.TextBox();
+            this.CB_ExSpouse = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -74,7 +76,7 @@
             this.CB_Mother.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.CB_Mother.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CB_Mother.FormattingEnabled = true;
-            this.CB_Mother.Location = new System.Drawing.Point(107, 238);
+            this.CB_Mother.Location = new System.Drawing.Point(107, 267);
             this.CB_Mother.Name = "CB_Mother";
             this.CB_Mother.Size = new System.Drawing.Size(160, 23);
             this.CB_Mother.TabIndex = 29;
@@ -82,7 +84,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 238);
+            this.label6.Location = new System.Drawing.Point(12, 267);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 15);
             this.label6.TabIndex = 35;
@@ -93,7 +95,7 @@
             this.CB_Father.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.CB_Father.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CB_Father.FormattingEnabled = true;
-            this.CB_Father.Location = new System.Drawing.Point(107, 209);
+            this.CB_Father.Location = new System.Drawing.Point(107, 238);
             this.CB_Father.Name = "CB_Father";
             this.CB_Father.Size = new System.Drawing.Size(160, 23);
             this.CB_Father.TabIndex = 28;
@@ -101,7 +103,7 @@
             // Father
             // 
             this.Father.AutoSize = true;
-            this.Father.Location = new System.Drawing.Point(12, 209);
+            this.Father.Location = new System.Drawing.Point(12, 238);
             this.Father.Name = "Father";
             this.Father.Size = new System.Drawing.Size(40, 15);
             this.Father.TabIndex = 34;
@@ -122,7 +124,7 @@
             this.CB_Spouse.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.CB_Spouse.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CB_Spouse.FormattingEnabled = true;
-            this.CB_Spouse.Location = new System.Drawing.Point(107, 180);
+            this.CB_Spouse.Location = new System.Drawing.Point(107, 209);
             this.CB_Spouse.Name = "CB_Spouse";
             this.CB_Spouse.Size = new System.Drawing.Size(160, 23);
             this.CB_Spouse.TabIndex = 26;
@@ -130,7 +132,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 180);
+            this.label4.Location = new System.Drawing.Point(12, 209);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 15);
             this.label4.TabIndex = 33;
@@ -209,9 +211,9 @@
             // 
             // BTN_Edit
             // 
-            this.BTN_Edit.Location = new System.Drawing.Point(12, 267);
+            this.BTN_Edit.Location = new System.Drawing.Point(12, 306);
             this.BTN_Edit.Name = "BTN_Edit";
-            this.BTN_Edit.Size = new System.Drawing.Size(255, 124);
+            this.BTN_Edit.Size = new System.Drawing.Size(255, 118);
             this.BTN_Edit.TabIndex = 31;
             this.BTN_Edit.Text = "Edit";
             this.BTN_Edit.UseVisualStyleBackColor = true;
@@ -225,11 +227,32 @@
             this.TB_FirstName.Size = new System.Drawing.Size(160, 23);
             this.TB_FirstName.TabIndex = 19;
             // 
+            // CB_ExSpouse
+            // 
+            this.CB_ExSpouse.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CB_ExSpouse.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CB_ExSpouse.FormattingEnabled = true;
+            this.CB_ExSpouse.Location = new System.Drawing.Point(107, 180);
+            this.CB_ExSpouse.Name = "CB_ExSpouse";
+            this.CB_ExSpouse.Size = new System.Drawing.Size(160, 23);
+            this.CB_ExSpouse.TabIndex = 36;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 180);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(62, 15);
+            this.label7.TabIndex = 37;
+            this.label7.Text = "Ex-Spouse";
+            // 
             // FRM_Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.CB_ExSpouse);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.CB_Mother);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.CB_Father);
@@ -278,5 +301,7 @@
         private Label label5;
         private Button BTN_Edit;
         private TextBox TB_FirstName;
+        private ComboBox CB_ExSpouse;
+        private Label label7;
     }
 }

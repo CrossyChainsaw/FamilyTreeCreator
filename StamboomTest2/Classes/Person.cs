@@ -17,10 +17,11 @@ namespace StamboomTest2.Classes
         public string Gender { get; set; }
         public string BirthYear { get; set; }
         public string DeathYear { get; set; }
+        public string ExSpouseID { get; set; }
         public string SpouseID { get; set; }
         public string FatherID { get; set; }
         public string MotherID { get; set; }
-        public Person(string id, string firstName, string lastName, string gender, string birthYear = null, string deathYear = null, string spouseID = null, string fatherID = null, string motherID = null)
+        public Person(string id, string firstName, string lastName, string gender, string birthYear = null, string deathYear = null, string exSpouseID = null, string spouseID = null, string fatherID = null, string motherID = null)
         {
             ID = id; // get highest id and do +1 // of pak persons.count = id
             FirstName = firstName;
@@ -28,6 +29,7 @@ namespace StamboomTest2.Classes
             Gender = gender;
             BirthYear = birthYear;
             DeathYear = deathYear;
+            ExSpouseID = exSpouseID;
             SpouseID = spouseID;
             FatherID = fatherID;
             MotherID = motherID;
@@ -50,13 +52,33 @@ namespace StamboomTest2.Classes
             }
             return BirthYear + " - " + DeathYear;
         }
+
+        internal string GetExSpouse()
+        {
+            string TB_Text;
+            Person exSpouse = FindPersonByID(ExSpouseID);
+            if (ExSpouseID == "?")
+            {
+                TB_Text = "?";
+            }
+            else if (exSpouse != null)
+            {
+                TB_Text = exSpouse.ToString();
+            }
+            else
+            {
+                TB_Text = "None";
+            }
+            return TB_Text;
+        }
+
         public string GetSpouse()
         {
             string TB_Text;
             Person spouse = FindPersonByID(SpouseID);
-            if (SpouseID == "-1")
+            if (SpouseID == "?")
             {
-                TB_Text = "None";
+                TB_Text = "?";
             }
             else if (spouse != null)
             {
@@ -64,7 +86,7 @@ namespace StamboomTest2.Classes
             }
             else
             {
-                TB_Text = "?";
+                TB_Text = "None";
             }
             return TB_Text;
         }
@@ -148,7 +170,7 @@ namespace StamboomTest2.Classes
                 var allPersons = jsonObject["Persons"];
                 foreach (var person in allPersons)
                 {
-                    Person p = new Person((string)person["ID"], (string)person["FirstName"], (string)person["LastName"], (string)person["Gender"], (string)person["BirthYear"], (string)person["DeathYear"], (string)person["SpouseID"], (string)person["FatherID"], (string)person["MotherID"]);
+                    Person p = new Person((string)person["ID"], (string)person["FirstName"], (string)person["LastName"], (string)person["Gender"], (string)person["BirthYear"], (string)person["DeathYear"], (string)person["ExSpouseID"], (string)person["SpouseID"], (string)person["FatherID"], (string)person["MotherID"]);
                     personList.Add(p);
                 }
             }
