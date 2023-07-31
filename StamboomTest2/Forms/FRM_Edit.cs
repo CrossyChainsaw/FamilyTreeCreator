@@ -46,7 +46,7 @@ namespace StamboomTest2.Forms
             TB_FirstName.Text = p.FirstName;
             CB_LastName.Text = p.LastName;
             CB_Gender.Text = p.Gender;
-            TB_YearOfBirth.Text = p.BirthYear;
+            TB_BirthYear.Text = p.BirthYear;
             TB_DeathYear.Text = p.DeathYear;
             CB_ExSpouse.Text = p.GetExSpouse();
             CB_Spouse.Text = p.GetSpouse();
@@ -59,6 +59,7 @@ namespace StamboomTest2.Forms
             string firstName = TB_FirstName.Text;
             string lastName = UsefullStaticMethods.ExtractLastName(CB_LastName);
             string gender = UsefullStaticMethods.ExtractGender(CB_Gender);
+            string birthYear = UsefullStaticMethods.ExtractBirthYear(TB_BirthYear);
             string ExSpouseID = UsefullStaticMethods.ExtractSpouse(CB_ExSpouse);
             string spouseID = UsefullStaticMethods.ExtractSpouse(CB_Spouse);
             string fatherID = UsefullStaticMethods.ExtractParent(CB_Father);
@@ -67,7 +68,7 @@ namespace StamboomTest2.Forms
             currentPerson.FirstName = firstName;
             currentPerson.LastName = lastName;
             currentPerson.Gender = gender;
-            currentPerson.BirthYear = TB_YearOfBirth.Text;
+            currentPerson.BirthYear = birthYear;
             currentPerson.DeathYear = TB_DeathYear.Text;
             currentPerson.ExSpouseID = ExSpouseID;
             currentPerson.SpouseID = spouseID;

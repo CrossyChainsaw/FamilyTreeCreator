@@ -41,7 +41,7 @@
             this.LBL_Gender = new System.Windows.Forms.Label();
             this.TB_DeathYear = new System.Windows.Forms.TextBox();
             this.LB = new System.Windows.Forms.Label();
-            this.TB_YearOfBirth = new System.Windows.Forms.TextBox();
+            this.TB_BirthYear = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -176,11 +176,11 @@
             // 
             // TB_YearOfBirth
             // 
-            this.TB_YearOfBirth.Location = new System.Drawing.Point(107, 122);
-            this.TB_YearOfBirth.Name = "TB_YearOfBirth";
-            this.TB_YearOfBirth.PlaceholderText = "year of birth";
-            this.TB_YearOfBirth.Size = new System.Drawing.Size(160, 23);
-            this.TB_YearOfBirth.TabIndex = 23;
+            this.TB_BirthYear.Location = new System.Drawing.Point(107, 122);
+            this.TB_BirthYear.Name = "TB_YearOfBirth";
+            this.TB_BirthYear.PlaceholderText = "year of birth";
+            this.TB_BirthYear.Size = new System.Drawing.Size(160, 23);
+            this.TB_BirthYear.TabIndex = 23;
             // 
             // label3
             // 
@@ -264,7 +264,7 @@
             this.Controls.Add(this.LBL_Gender);
             this.Controls.Add(this.TB_DeathYear);
             this.Controls.Add(this.LB);
-            this.Controls.Add(this.TB_YearOfBirth);
+            this.Controls.Add(this.TB_BirthYear);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
@@ -295,7 +295,7 @@
         private Label LBL_Gender;
         private TextBox TB_DeathYear;
         private Label LB;
-        private TextBox TB_YearOfBirth;
+        private TextBox TB_BirthYear;
         private Label label3;
         private Label label2;
         private Label label5;

@@ -19,6 +19,17 @@ namespace StamboomTest2.Classes
                 return c.Text;
             }
         }
+        public static string ExtractBirthYear(TextBox t)
+        {
+            if(t.Text == "")
+            {
+                return "?";
+            }
+            else
+            {
+                return t.Text;
+            }
+        }
         public static string ExtractGender(ComboBox c)
         {
             if (c.Text == "")

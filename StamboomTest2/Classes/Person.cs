@@ -52,7 +52,6 @@ namespace StamboomTest2.Classes
             }
             return BirthYear + " - " + DeathYear;
         }
-
         internal string GetExSpouse()
         {
             string TB_Text;
@@ -67,11 +66,10 @@ namespace StamboomTest2.Classes
             }
             else
             {
-                TB_Text = "None";
+                TB_Text = "";
             }
             return TB_Text;
         }
-
         public string GetSpouse()
         {
             string TB_Text;
@@ -104,6 +102,77 @@ namespace StamboomTest2.Classes
             }
             return TB_Text;
         }
+        public string GetPaternalGrandfather()
+        {
+            // get your father id, check your fathers father id ez
+            Person father = FindPersonByID(this.FatherID);
+            if (father == null)
+            {
+                return "?";
+            }
+            Person grandFather = FindPersonByID(father.FatherID);
+            if (grandFather != null)
+            {
+                return grandFather.ToString();
+            }
+            else{
+                return "?";
+            }
+        }
+        public string GetPaternalGrandmother()
+        {
+            // get your father id, check your fathers father id ez
+            Person father = FindPersonByID(this.FatherID);
+            if (father == null)
+            {
+                return "?";
+            }
+            Person grandmother = FindPersonByID(father.MotherID);
+            if (grandmother != null)
+            {
+                return grandmother.ToString();
+            }
+            else
+            {
+                return "?";
+            }
+        }
+        public string GetMaternalGrandmother()
+        {
+            // get your father id, check your fathers father id ez
+            Person mother = FindPersonByID(this.MotherID);
+            if (mother == null)
+            {
+                return "?";
+            }
+            Person grandMother = FindPersonByID(mother.MotherID);
+            if (grandMother != null)
+            {
+                return grandMother.ToString();
+            }
+            else
+            {
+                return "?";
+            }
+        }
+        public string GetMaternalGrandfather()
+        {
+            // get your father id, check your fathers father id ez
+            Person mother = FindPersonByID(this.MotherID);
+            if (mother == null)
+            {
+                return "?";
+            }
+            Person grandFather = FindPersonByID(mother.FatherID);
+            if (grandFather != null)
+            {
+                return grandFather.ToString();
+            }
+            else
+            {
+                return "?";
+            }
+        }
         public string GetMother()
         {
             string TB_Text;
@@ -118,13 +187,115 @@ namespace StamboomTest2.Classes
             }
             return TB_Text;
         }
+        public string GetChildren()
+        {
+            List<Person> personList = Person.LoadAllPersons();
+            List<Person> children = new List<Person>();
+            foreach (Person person in personList)
+            {
+                if (person.FatherID == this.ID && person.MotherID == this.SpouseID)
+                {
+                    children.Add(person);
+                }
+                else if (person.MotherID == this.ID && person.FatherID == this.SpouseID)
+                {
+                    children.Add(person);
+                }
+            }
+
+            string TB_Children = "";
+            foreach (Person child in children)
+            {
+                TB_Children += child.ToString();
+                TB_Children += "\n";
+            }
+            return TB_Children;
+        }
+        public string GetExChildren()
+        {
+            List<Person> personList = Person.LoadAllPersons();
+            List<Person> children = new List<Person>();
+            foreach (Person person in personList)
+            {
+                if (person.FatherID == this.ID && person.MotherID == this.ExSpouseID)
+                {
+                    children.Add(person);
+                }
+                else if (person.MotherID == this.ID && person.FatherID == this.ExSpouseID)
+                {
+                    children.Add(person);
+                }
+            }
+
+            string TB_Children = "";
+            foreach (Person child in children)
+            {
+                TB_Children += child.ToString();
+                TB_Children += "\n";
+            }
+            return TB_Children;
+        }
+        public string GetSiblings()
+        {
+            // if its parent id is ? it should inst return nothing
+            List<Person> siblings = new List<Person>();
+            List<Person> personList = Person.LoadAllPersons();
+            foreach (Person person in personList)
+            {
+                if((FatherID == "?" | FatherID == null) && (MotherID == "?" | MotherID == null))
+                {
+                    return "";
+                }
+                if (person.FatherID == this.FatherID && person.MotherID == this.MotherID)
+                {
+                    siblings.Add(person);
+                }
+            }
+
+            string TB_Siblings = "";
+            foreach (Person sib in siblings)
+            {
+                TB_Siblings += sib.ToString();
+                TB_Siblings += "\n";
+            }
+            return TB_Siblings;
+        }
+        public string GetHalfSiblings()
+        {
+            List<Person> siblings = new List<Person>();
+            List<Person> personList = Person.LoadAllPersons();
+            foreach (Person person in personList)
+            {
+                if ((FatherID == "?" | FatherID == null) && (MotherID == "?" | MotherID == null))
+                {
+                    return "";
+                }
+                if (person.FatherID == this.FatherID ^ person.MotherID == this.MotherID)
+                {
+                    siblings.Add(person);
+                }
+            }
+
+            string TB_Siblings = "";
+            foreach (Person sib in siblings)
+            {
+                TB_Siblings += sib.ToString();
+                TB_Siblings += "\n";
+            }
+            return TB_Siblings;
+        }
         public override string ToString()
         {
+            if (FirstName == "?" && LastName == "?")
+            {
+                Person spouse = Person.FindPersonByID(SpouseID);
+                return FirstName + " (Spouse of " + spouse.FirstName + ")";
+            }
             if (LastName == "-1")
             {
                 return FirstName;
             }
-            else if (LastName == null)
+            if (LastName == null)
             {
                 LastName = "?";
             }

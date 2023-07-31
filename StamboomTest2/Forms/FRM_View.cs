@@ -27,18 +27,21 @@ namespace StamboomTest2.Forms
         void CB_Persons_SelectedIndexChanged(object sender, EventArgs e)
         {
             Person p = (Person)CB_Persons.SelectedItem;
-            // Gender 
             TB_Gender.Text = p.Gender;
-            // LifeSpan
             TB_LifeSpan.Text = p.GetLifeSpan();
-            // Ex-Spouse
             TB_ExSpouse.Text = p.GetExSpouse();
-            // Spouse
             TB_Spouse.Text = p.GetSpouse();
-            // Father
             TB_Father.Text = p.GetFather();
-            // Mother
             TB_Mother.Text = p.GetMother();
+            TB_Person.Text = p.ToString();
+            RTB_Children.Text = p.GetChildren();
+            RTB_ExChildren.Text = p.GetExChildren();
+            RTB_Siblings.Text = p.GetSiblings();
+            RTB_HalfSiblings.Text = p.GetHalfSiblings();
+            TB_PaternalGrandfather.Text = p.GetPaternalGrandfather();
+            TB_PaternalGrandmother.Text = p.GetPaternalGrandmother();
+            TB_MaternalGrandfather.Text = p.GetMaternalGrandfather();
+            TB_MaternalGrandmother.Text = p.GetMaternalGrandmother();
         }
     }
 }

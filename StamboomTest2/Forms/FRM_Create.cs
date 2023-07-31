@@ -15,12 +15,13 @@ namespace StamboomTest2
             string firstName = CB_FirstName.Text;
             string lastName = UsefullStaticMethods.ExtractLastName(CB_LastName);
             string gender = UsefullStaticMethods.ExtractGender(CB_Gender);
+            string birthYear = UsefullStaticMethods.ExtractBirthYear(TB_BirthYear);
             string ExSpouseID = UsefullStaticMethods.ExtractSpouse(CB_ExSpouse);
             string spouseID = UsefullStaticMethods.ExtractSpouse(CB_Spouse);
             string fatherID = UsefullStaticMethods.ExtractParent(CB_Father);
             string motherID = UsefullStaticMethods.ExtractParent(CB_Mother);
 
-            Person p = new Person(nextFreeID, firstName, lastName, gender, TB_YearOfBirth.Text, TB_DeathYear.Text, ExSpouseID, spouseID, fatherID, motherID);
+            Person p = new Person(nextFreeID, firstName, lastName, gender, birthYear, TB_DeathYear.Text, ExSpouseID, spouseID, fatherID, motherID);
             Person.CreatePerson(p);
             MessageBox.Show("Created: " + p.ToString());
             RefreshDataInControls();
@@ -105,7 +106,7 @@ namespace StamboomTest2
             string firstName = CB_P1_FirstName.Text;
             string lastName = UsefullStaticMethods.ExtractLastName(CB_P1_LastName);
             string gender = UsefullStaticMethods.ExtractGender(CB_P1_Gender);
-            string birthYear = TB_P1_BirthYear.Text;
+            string birthYear = UsefullStaticMethods.ExtractBirthYear(TB_P1_BirthYear);
             string deathYear = TB_P1_DeathYear.Text;
             string exSpouseID = UsefullStaticMethods.ExtractSpouse(CB_P1_ExSpouse);
             string fatherID = UsefullStaticMethods.ExtractParent(CB_P1_Father);
@@ -118,7 +119,7 @@ namespace StamboomTest2
             string firstName2 = CB_P2_FirstName.Text;
             string lastName2 = UsefullStaticMethods.ExtractLastName(CB_P2_LastName);
             string gender2 = UsefullStaticMethods.ExtractGender(CB_P2_Gender);
-            string birthYear2 = TB_P2_BirthYear.Text;
+            string birthYear2 = UsefullStaticMethods.ExtractBirthYear(TB_P2_BirthYear);
             string deathYear2 = TB_P2_DeathYear.Text;
             string exSpouseID2 = UsefullStaticMethods.ExtractSpouse(CB_P2_ExSpouse);
             string fatherID2 = UsefullStaticMethods.ExtractParent(CB_P2_Father);
@@ -128,7 +129,7 @@ namespace StamboomTest2
             Person.CreatePerson(p2);
 
 
-            MessageBox.Show("Created: " + p.ToString());
+            MessageBox.Show("Created Couple: " + p.ToString() + " & " + p2.ToString());
             RefreshDataInControls();
         }
 
