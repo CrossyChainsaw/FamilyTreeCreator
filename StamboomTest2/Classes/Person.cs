@@ -11,17 +11,17 @@ namespace StamboomTest2.Classes
     internal class Person
     {
 
-        public string ID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Gender { get; set; }
-        public string BirthYear { get; set; }
-        public string DeathYear { get; set; }
-        public string ExSpouseID { get; set; }
-        public string SpouseID { get; set; }
-        public string FatherID { get; set; }
-        public string MotherID { get; set; }
-        public Person(string id, string firstName, string lastName, string gender, string birthYear = null, string deathYear = null, string exSpouseID = null, string spouseID = null, string fatherID = null, string motherID = null)
+        public string? ID { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public string? Gender { get; set; }
+        public string? BirthYear { get; set; }
+        public string? DeathYear { get; set; }
+        public string? ExSpouseID { get; set; }
+        public string? SpouseID { get; set; }
+        public string? FatherID { get; set; }
+        public string? MotherID { get; set; }
+        public Person(string id, string firstName, string lastName, string gender, string? birthYear = null, string? deathYear = null, string? exSpouseID = null, string? spouseID = null, string? fatherID = null, string? motherID = null)
         {
             ID = id; // get highest id and do +1 // of pak persons.count = id
             FirstName = firstName;
@@ -156,9 +156,12 @@ namespace StamboomTest2.Classes
             var jsonString = JsonConvert.SerializeObject(f);
             File.WriteAllText("../../../Data/Persons.json", jsonString);
         }
-        public static int GetNextFreeID()
+        public static string GetNextFreeID()
         {
-            return LoadAllPersons().Count + 1;
+            // get id of the last person
+            List<Person> personList = Person.LoadAllPersons();
+            Person lastPerson = personList.Last();
+            return (Convert.ToInt32(lastPerson.ID) + 1).ToString();
         }
         public static List<Person> LoadAllPersons()
         {

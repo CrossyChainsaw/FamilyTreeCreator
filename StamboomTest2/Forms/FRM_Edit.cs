@@ -14,7 +14,7 @@ namespace StamboomTest2.Forms
 {
     public partial class FRM_Edit : Form
     {
-        Person currentPerson = null;
+        Person currentPerson;
         public FRM_Edit()
         {
             InitializeComponent();
@@ -56,81 +56,13 @@ namespace StamboomTest2.Forms
 
         private void BTN_Edit_Click(object sender, EventArgs e)
         {
-            // First Name 
             string firstName = TB_FirstName.Text;
-            // Last Name
-            string lastName;
-            if (CB_LastName.SelectedItem != null)
-            {
-                lastName = CB_LastName.SelectedItem.ToString();
-            }
-            else
-            {
-                lastName = CB_LastName.Text;
-            }
-            // Gender
-            string gender;
-            if (CB_Gender.Text == "")
-            {
-                gender = "?";
-            }
-            else if (CB_Gender.SelectedItem == null)
-            {
-                MessageBox.Show("Gender has not been filled in correctly");
-                return;
-            }
-            else
-            {
-                gender = CB_Gender.SelectedItem.ToString();
-            }
-            // Ex-Spouse
-            string ExSpouseID;
-            if (CB_ExSpouse.Text == "?")
-            {
-                ExSpouseID = "?";
-            }
-            else if (CB_ExSpouse.SelectedItem != null)
-            {
-                Person ExSpouse = (Person)CB_ExSpouse.SelectedItem;
-                ExSpouseID = ExSpouse.ID;
-            }
-            else
-            {
-                ExSpouseID = null;
-            }
-            // Spouse
-            string spouseID;
-            if (CB_Spouse.SelectedItem != null)
-            {
-                Person spouse = (Person)CB_Spouse.SelectedItem;
-                spouseID = spouse.ID;
-            }
-            else
-            {
-                spouseID = null;
-            }
-            // Father
-            string fatherID;
-            if (CB_Father.SelectedItem != null)
-            {
-                Person father = (Person)CB_Father.SelectedItem;
-                fatherID = father.ID;
-            }
-            else
-            {
-                fatherID = null;
-            }
-            // Mother
-            string motherID;
-            if (CB_Mother.SelectedItem != null)
-            {
-                Person mother = (Person)CB_Mother.SelectedItem;
-                motherID = mother.ID;
-            }
-            else
-            {
-                motherID = null;
-            }
+            string lastName = UsefullStaticMethods.ExtractLastName(CB_LastName);
+            string gender = UsefullStaticMethods.ExtractGender(CB_Gender);
+            string ExSpouseID = UsefullStaticMethods.ExtractSpouse(CB_ExSpouse);
+            string spouseID = UsefullStaticMethods.ExtractSpouse(CB_Spouse);
+            string fatherID = UsefullStaticMethods.ExtractParent(CB_Father);
+            string motherID = UsefullStaticMethods.ExtractParent(CB_Mother);
 
             currentPerson.FirstName = firstName;
             currentPerson.LastName = lastName;
@@ -141,8 +73,9 @@ namespace StamboomTest2.Forms
             currentPerson.SpouseID = spouseID;
             currentPerson.FatherID = fatherID;
             currentPerson.MotherID = motherID;
+
             Person.EditPerson(currentPerson);
-            MessageBox.Show("Edited: " + firstName + " " + lastName);
+            MessageBox.Show("Edited: " + currentPerson.ToString());
         }
     }
 }

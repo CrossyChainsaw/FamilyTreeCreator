@@ -40,12 +40,16 @@
             this.TB_LifeSpan = new System.Windows.Forms.TextBox();
             this.TB_Spouse = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.TB_ExSpouse = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // CB_Persons
             // 
+            this.CB_Persons.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CB_Persons.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CB_Persons.FormattingEnabled = true;
-            this.CB_Persons.Location = new System.Drawing.Point(56, 6);
+            this.CB_Persons.Location = new System.Drawing.Point(73, 6);
             this.CB_Persons.Name = "CB_Persons";
             this.CB_Persons.Size = new System.Drawing.Size(148, 23);
             this.CB_Persons.TabIndex = 0;
@@ -63,7 +67,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 67);
+            this.label2.Location = new System.Drawing.Point(11, 96);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 15);
             this.label2.TabIndex = 2;
@@ -72,7 +76,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 96);
+            this.label3.Location = new System.Drawing.Point(5, 125);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 15);
             this.label3.TabIndex = 3;
@@ -80,7 +84,7 @@
             // 
             // TB_Father
             // 
-            this.TB_Father.Location = new System.Drawing.Point(56, 64);
+            this.TB_Father.Location = new System.Drawing.Point(73, 93);
             this.TB_Father.Name = "TB_Father";
             this.TB_Father.PlaceholderText = "father";
             this.TB_Father.ReadOnly = true;
@@ -89,7 +93,7 @@
             // 
             // TB_Mother
             // 
-            this.TB_Mother.Location = new System.Drawing.Point(56, 93);
+            this.TB_Mother.Location = new System.Drawing.Point(73, 122);
             this.TB_Mother.Name = "TB_Mother";
             this.TB_Mother.PlaceholderText = "mother";
             this.TB_Mother.ReadOnly = true;
@@ -98,7 +102,7 @@
             // 
             // TB_Gender
             // 
-            this.TB_Gender.Location = new System.Drawing.Point(261, 6);
+            this.TB_Gender.Location = new System.Drawing.Point(278, 6);
             this.TB_Gender.Name = "TB_Gender";
             this.TB_Gender.PlaceholderText = "gender";
             this.TB_Gender.ReadOnly = true;
@@ -108,7 +112,7 @@
             // LBL_Gender
             // 
             this.LBL_Gender.AutoSize = true;
-            this.LBL_Gender.Location = new System.Drawing.Point(210, 9);
+            this.LBL_Gender.Location = new System.Drawing.Point(227, 9);
             this.LBL_Gender.Name = "LBL_Gender";
             this.LBL_Gender.Size = new System.Drawing.Size(45, 15);
             this.LBL_Gender.TabIndex = 7;
@@ -117,7 +121,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(415, 9);
+            this.label4.Location = new System.Drawing.Point(432, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 15);
             this.label4.TabIndex = 8;
@@ -125,7 +129,7 @@
             // 
             // TB_LifeSpan
             // 
-            this.TB_LifeSpan.Location = new System.Drawing.Point(476, 6);
+            this.TB_LifeSpan.Location = new System.Drawing.Point(493, 6);
             this.TB_LifeSpan.Name = "TB_LifeSpan";
             this.TB_LifeSpan.PlaceholderText = "lifespan";
             this.TB_LifeSpan.ReadOnly = true;
@@ -134,7 +138,7 @@
             // 
             // TB_Spouse
             // 
-            this.TB_Spouse.Location = new System.Drawing.Point(56, 35);
+            this.TB_Spouse.Location = new System.Drawing.Point(73, 64);
             this.TB_Spouse.Name = "TB_Spouse";
             this.TB_Spouse.PlaceholderText = "spouse";
             this.TB_Spouse.ReadOnly = true;
@@ -144,17 +148,37 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 38);
+            this.label5.Location = new System.Drawing.Point(6, 67);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 15);
             this.label5.TabIndex = 11;
             this.label5.Text = "Spouse";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(5, 38);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 15);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Ex-Spouse";
+            // 
+            // TB_ExSpouse
+            // 
+            this.TB_ExSpouse.Location = new System.Drawing.Point(73, 35);
+            this.TB_ExSpouse.Name = "TB_ExSpouse";
+            this.TB_ExSpouse.PlaceholderText = "ex-spouse";
+            this.TB_ExSpouse.ReadOnly = true;
+            this.TB_ExSpouse.Size = new System.Drawing.Size(148, 23);
+            this.TB_ExSpouse.TabIndex = 13;
             // 
             // FRM_View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.TB_ExSpouse);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.TB_Spouse);
             this.Controls.Add(this.TB_LifeSpan);
@@ -189,5 +213,7 @@
         private TextBox TB_LifeSpan;
         private TextBox TB_Spouse;
         private Label label5;
+        private Label label6;
+        private TextBox TB_ExSpouse;
     }
 }

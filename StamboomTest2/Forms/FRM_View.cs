@@ -31,6 +31,8 @@ namespace StamboomTest2.Forms
             TB_Gender.Text = p.Gender;
             // LifeSpan
             TB_LifeSpan.Text = p.GetLifeSpan();
+            // Ex-Spouse
+            TB_ExSpouse.Text = p.GetExSpouse();
             // Spouse
             TB_Spouse.Text = p.GetSpouse();
             // Father
