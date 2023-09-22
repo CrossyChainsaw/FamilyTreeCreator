@@ -115,7 +115,8 @@ namespace StamboomTest2.Classes
             {
                 return grandFather.ToString();
             }
-            else{
+            else
+            {
                 return "?";
             }
         }
@@ -242,7 +243,7 @@ namespace StamboomTest2.Classes
             List<Person> personList = Person.LoadAllPersons();
             foreach (Person person in personList)
             {
-                if((FatherID == "?" | FatherID == null) && (MotherID == "?" | MotherID == null))
+                if ((FatherID == "?" | FatherID == null) && (MotherID == "?" | MotherID == null))
                 {
                     return "";
                 }
@@ -331,8 +332,15 @@ namespace StamboomTest2.Classes
         {
             // get id of the last person
             List<Person> personList = Person.LoadAllPersons();
-            Person lastPerson = personList.Last();
-            return (Convert.ToInt32(lastPerson.ID) + 1).ToString();
+            if (personList.Count > 0)
+            {
+                Person lastPerson = personList.Last();
+                return (Convert.ToInt32(lastPerson.ID) + 1).ToString();
+            }
+            else
+            {
+                return "0";
+            }
         }
         public static List<Person> LoadAllPersons()
         {
